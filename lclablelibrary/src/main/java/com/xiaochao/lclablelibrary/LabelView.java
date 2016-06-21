@@ -26,6 +26,7 @@ public class LabelView extends View {
     private Paint mTextPaint = new Paint(Paint.ANTI_ALIAS_FLAG);
     private Paint mBackgroundPaint = new Paint(Paint.ANTI_ALIAS_FLAG);
     private Path mPath = new Path();
+    private int mFqSize;
 
     public LabelView(Context context) {
         this(context, null);
@@ -40,6 +41,7 @@ public class LabelView extends View {
 
     private void obtainAttributes(Context context, AttributeSet attrs) {
         TypedArray ta = context.obtainStyledAttributes(attrs, R.styleable.LabelView);
+        mFqSize = ta.getInt(R.styleable.LabelView_lv_fill_size,0);
         mTextContent = ta.getString(R.styleable.LabelView_lv_text);
         mTextColor = ta.getColor(R.styleable.LabelView_lv_text_color, Color.parseColor("#ffffff"));
         mTextSize = ta.getDimension(R.styleable.LabelView_lv_text_size, sp2px(11));
@@ -158,7 +160,7 @@ public class LabelView extends View {
         mBackgroundPaint.setColor(mBackgroundColor);
 
         float textHeight = mTextPaint.descent() - mTextPaint.ascent();
-        int i= dp2px(3);
+        int i=0;
         if (mFillTriangle) {
             if (mGravity == (Gravity.TOP | Gravity.LEFT)) {
                 mPath.reset();
