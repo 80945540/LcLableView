@@ -160,7 +160,7 @@ public class LabelView extends View {
         mBackgroundPaint.setColor(mBackgroundColor);
 
         float textHeight = mTextPaint.descent() - mTextPaint.ascent();
-        int i=0;
+        int i=dp2px(mFqSize);
         if (mFillTriangle) {
             if (mGravity == (Gravity.TOP | Gravity.LEFT)) {
                 mPath.reset();
@@ -203,14 +203,18 @@ public class LabelView extends View {
             double delta = (textHeight + mPadding * 2) * Math.sqrt(2);
             if (mGravity == (Gravity.TOP | Gravity.LEFT)) {
                 mPath.reset();
-                mPath.moveTo(0, (float) (size - delta));
-                mPath.lineTo(0, size);
-                mPath.lineTo(size, 0);
-                mPath.lineTo((float) (size - delta), 0);
+                mPath.moveTo(0, (float) (size - delta) - i);
+                mPath.lineTo(0, size - i);
+                mPath.lineTo(i, size);
+                mPath.lineTo(i, size-(i*2));
+                mPath.lineTo(size-(i*2), i);
+                mPath.lineTo(size, i);
+                mPath.lineTo(size-i, 0);
+                mPath.lineTo((float) (size - delta)-i, 0);
                 mPath.close();
                 canvas.drawPath(mPath, mBackgroundPaint);
 
-                drawText(size, -DEFAULT_DEGREES, canvas, textHeight, true);
+                drawText(size, -DEFAULT_DEGREES, canvas, textHeight+i, true);
             } else if (mGravity == (Gravity.TOP | Gravity.RIGHT)) {
                 mPath.reset();
                 mPath.moveTo(0 + i, 0);
@@ -227,24 +231,32 @@ public class LabelView extends View {
                 drawText(size, DEFAULT_DEGREES, canvas, textHeight+i, true);
             } else if (mGravity == (Gravity.BOTTOM | Gravity.LEFT)) {
                 mPath.reset();
-                mPath.moveTo(0, 0);
-                mPath.lineTo(0, (float) delta);
-                mPath.lineTo((float) (size - delta), size);
-                mPath.lineTo(size, size);
+                mPath.moveTo(i, 0);
+                mPath.lineTo(0, i);
+                mPath.lineTo(0, (float) delta+i);
+                mPath.lineTo((float) (size - delta)-i, size);
+                mPath.lineTo(size-i, size);
+                mPath.lineTo(size, size-i);
+                mPath.lineTo(size-(i*2), size-i);
+                mPath.lineTo(i, i * 2);
                 mPath.close();
                 canvas.drawPath(mPath, mBackgroundPaint);
 
-                drawText(size, DEFAULT_DEGREES, canvas, textHeight, false);
+                drawText(size, DEFAULT_DEGREES, canvas, textHeight+i, false);
             } else if (mGravity == (Gravity.BOTTOM | Gravity.RIGHT)) {
                 mPath.reset();
-                mPath.moveTo(0, size);
-                mPath.lineTo((float) delta, size);
-                mPath.lineTo(size, (float) delta);
-                mPath.lineTo(size, 0);
+                mPath.moveTo(0, size - i);
+                mPath.lineTo(i, size);
+                mPath.lineTo((float) delta + i, size);
+                mPath.lineTo(size, (float) delta+i);
+                mPath.lineTo(size,i);
+                mPath.lineTo(size - i, 0);
+                mPath.lineTo(size-i, i*2);
+                mPath.lineTo(i*2, size-i);
                 mPath.close();
                 canvas.drawPath(mPath, mBackgroundPaint);
 
-                drawText(size, -DEFAULT_DEGREES, canvas, textHeight, false);
+                drawText(size, -DEFAULT_DEGREES, canvas, textHeight+i, false);
             }
         }
     }

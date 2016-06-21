@@ -1,5 +1,7 @@
 package com.xiaochao.lclableview;
 
+import android.content.Intent;
+import android.net.Uri;
 import android.os.Bundle;
 import android.support.design.widget.TabLayout;
 import android.support.v4.app.Fragment;
@@ -10,6 +12,7 @@ import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
 import android.view.Menu;
 import android.view.MenuItem;
+import android.widget.Toast;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -52,6 +55,9 @@ public class MainActivity extends AppCompatActivity {
         int id = item.getItemId();
 
         if (id == R.id.action_settings) {
+            Uri uri = Uri.parse("https://github.com/80945540/LcLableView");
+            Intent it = new Intent(Intent.ACTION_VIEW, uri);
+            startActivity(it);
             return true;
         }
 
@@ -81,9 +87,9 @@ public class MainActivity extends AppCompatActivity {
                 case 0:
                     return "浮嵌";
                 case 1:
-                    return "空边";
-                case 2:
                     return "实边";
+                case 2:
+                    return "空边";
             }
             return null;
         }
