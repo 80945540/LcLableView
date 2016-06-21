@@ -10,7 +10,7 @@
 <img src="/image/image1.png" style="width: 30%;">
 <img src="/image/image1.png" style="width: 30%;">
 
-## 使用说明
+### 使用说明
 
 导入 lclablelibrary 到项目中
 
@@ -20,5 +20,16 @@
     compile fileTree(include: ['*.jar'], dir: 'libs')
     ....
     compile project(':lclablelibrary')
-}
+    }
 ```
+
+#### 属性
+
+| Attribute 属性          | Description 描述 |
+|:---				     |:---|
+| mvAnimDuration         | 一行文字动画执行时间           |
+| mvInterval         | 两行文字翻页时间间隔           |
+| mvTextSize         | 文字大小           |
+| mvTextColor         | 文字颜色          |
+| mvGravity         | 文字位置:left、center、right          |
+
