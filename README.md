@@ -27,9 +27,15 @@
 
 | Attribute 属性          | Description 描述 |
 |:---				     |:---|
-| mvAnimDuration         | 一行文字动画执行时间           |
-| mvInterval         | 两行文字翻页时间间隔           |
-| mvTextSize         | 文字大小           |
-| mvTextColor         | 文字颜色          |
-| mvGravity         | 文字位置:left、center、right          |
+| lv_text                | 设置文字内容           |
+| lv_text_color         | 设置文字颜色,默认#ffffff       |
+| lv_text_size         | 设置文字大小,默认11sp           |
+| lv_text_bold         | 设置文字是否支持加粗,默认true    |
+| lv_text_all_caps      | 设置文字是否支持全部大写,默认true |
+| lv_background_color      | 设置背景颜色,默认"#FF4081" |
+| lv_min_size      | 设置LabelView所在矩形最小宽高,默认35dp或50dp |
+| lv_padding      | 设置文字上下padding,默认3.5dp |
+| lv_gravity      | 设置LabelView方向  |
+| lv_fill_triangle      | 设置是否填充三角区域,默认false  |
+| lv_fill_size      | 设置是否浮嵌显示大小  |
 
