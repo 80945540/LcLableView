@@ -7,8 +7,8 @@
 ## 效果图
 
 <img src="/image/image1.png" style="width: 30%;">
-<img src="/image/image1.png" style="width: 30%;">
-<img src="/image/image1.png" style="width: 30%;">
+<img src="/image/image2.png" style="width: 30%;">
+<img src="/image/image3.png" style="width: 30%;">
 
 ### 使用说明
 
@@ -38,4 +38,59 @@
 | lv_gravity      | 设置LabelView方向  |
 | lv_fill_triangle      | 设置是否填充三角区域,默认false  |
 | lv_fill_size      | 设置是否浮嵌显示大小  |
+
+
+### 实际使用代码
+
+######使用空边标签时
+
+```
+ <FrameLayout
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="@drawable/bag"
+        android:orientation="vertical"
+        android:gravity="center">
+    </View>
+    <com.xiaochao.lclablelibrary.LabelView
+        android:layout_width="60dp"
+        android:layout_height="60dp"
+        android:layout_gravity="bottom"
+        lv:lv_background_color="#FF6666"
+        lv:lv_gravity="BOTTOM_LEFT"
+        lv:lv_text="十年经验"
+        lv:lv_text_size="8dp"
+        />
+ </FrameLayout>
+```
+
+#####使用浮嵌标签时
+
+要注意容器的android:layout_margin="3dp"必须和lv:lv_fill_size="3"值一样
+```
+<FrameLayout
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_margin="3dp"
+        android:background="@drawable/bag"
+        android:orientation="vertical"
+        android:gravity="center">
+    </View>
+    <com.xiaochao.lclablelibrary.LabelView
+        android:layout_width="60dp"
+        android:layout_height="60dp"
+        lv:lv_background_color="#FF6666"
+        lv:lv_gravity="TOP_LEFT"
+        lv:lv_text="十年经验"
+        lv:lv_text_size="8dp"
+        lv:lv_fill_size="3"
+        />
+</FrameLayout>
+```
 
