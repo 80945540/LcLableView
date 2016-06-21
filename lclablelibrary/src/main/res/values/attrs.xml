@@ -26,5 +26,7 @@
         </attr>
         <!-- 设置是否填充三角区域,默认false -->
         <attr name="lv_fill_triangle" format="boolean"/>
+        <!-- 设置是否浮嵌显示大小 -->
+        <attr name="lv_fill_size" format="dimension"/>
     </declare-styleable>
 </resources>
